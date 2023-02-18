@@ -267,7 +267,7 @@ public class Network {
 		}
 
 		if (packet.getDestination_().equals(currentNode.name_)) {
-			result = printDocument(currentNode, packet, report);
+			result = packet.printDocument(currentNode, report);
 		} else {
 			try {
 				report.write(">>> Destinition not found, print job cancelled.\n\n");
@@ -279,65 +279,6 @@ public class Network {
 		}
 
 		return result;
-	}
-
-	private boolean printDocument (Node printer, Packet document, Writer report) {
-		String author = "Unknown";
-		String title = "Untitled";
-		int startPos = 0, endPos = 0;
-
-		if (printer.type_ == Node.PRINTER) {
-			try {
-				if (document.getMessage_().startsWith("!PS")) {
-					startPos = document.getMessage_().indexOf("author:");
-					if (startPos >= 0) {
-						endPos = document.getMessage_().indexOf(".", startPos + 7);
-						if (endPos < 0) {
-							endPos = document.getMessage_().length();
-						}
-						author = document.getMessage_().substring(startPos + 7, endPos);
-					}
-					startPos = document.getMessage_().indexOf("title:");
-					if (startPos >= 0) {
-						endPos = document.getMessage_().indexOf(".", startPos + 6);
-						if (endPos < 0) {
-							endPos = document.getMessage_().length();
-						}
-						title = document.getMessage_().substring(startPos + 6, endPos);
-					}
-					report.write("\tAccounting -- author = '");
-					report.write(author);
-					report.write("' -- title = '");
-					report.write(title);
-					report.write("'\n");
-					report.write(">>> Postscript job delivered.\n\n");
-					report.flush();
-				} else {
-					title = "ASCII DOCUMENT";
-					if (document.getMessage_().length() >= 16) {
-						author = document.getMessage_().substring(8, 16);
-					}
-					report.write("\tAccounting -- author = '");
-					report.write(author);
-					report.write("' -- title = '");
-					report.write(title);
-					report.write("'\n");
-					report.write(">>> ASCII Print job delivered.\n\n");
-					report.flush();
-				}
-			} catch (IOException exc) {
-				// just ignore
-			}
-			return true;
-		} else {
-			try {
-				report.write(">>> Destinition is not a printer, print job cancelled.\n\n");
-				report.flush();
-			} catch (IOException exc) {
-				// just ignore
-			}
-			return false;
-		}
 	}
 
 	/**
