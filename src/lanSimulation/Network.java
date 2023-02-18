@@ -288,23 +288,22 @@ public class Network {
 
 		if (printer.type_ == Node.PRINTER) {
 			try {
-				var message = document.getMessage_();
-				if (message.startsWith("!PS")) {
-					startPos = message.indexOf("author:");
+				if (document.getMessage_().startsWith("!PS")) {
+					startPos = document.getMessage_().indexOf("author:");
 					if (startPos >= 0) {
-						endPos = message.indexOf(".", startPos + 7);
+						endPos = document.getMessage_().indexOf(".", startPos + 7);
 						if (endPos < 0) {
-							endPos = message.length();
+							endPos = document.getMessage_().length();
 						}
-						author = message.substring(startPos + 7, endPos);
+						author = document.getMessage_().substring(startPos + 7, endPos);
 					}
-					startPos = message.indexOf("title:");
+					startPos = document.getMessage_().indexOf("title:");
 					if (startPos >= 0) {
-						endPos = message.indexOf(".", startPos + 6);
+						endPos = document.getMessage_().indexOf(".", startPos + 6);
 						if (endPos < 0) {
-							endPos = message.length();
+							endPos = document.getMessage_().length();
 						}
-						title = message.substring(startPos + 6, endPos);
+						title = document.getMessage_().substring(startPos + 6, endPos);
 					}
 					report.write("\tAccounting -- author = '");
 					report.write(author);
@@ -315,8 +314,8 @@ public class Network {
 					report.flush();
 				} else {
 					title = "ASCII DOCUMENT";
-					if (message.length() >= 16) {
-						author = message.substring(8, 16);
+					if (document.getMessage_().length() >= 16) {
+						author = document.getMessage_().substring(8, 16);
 					}
 					report.write("\tAccounting -- author = '");
 					report.write(author);
