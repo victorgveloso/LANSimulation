@@ -40,11 +40,12 @@ public class LANTests {
 				packet.getMessage_(), "c");
 		assertEquals("destination_",
 				packet.destination_, "a");
+		var origin = packet.origin_;
 		assertEquals("origin_",
-				packet.origin_, "");
-		packet.origin_ = "o";
+				origin, "");
+		origin = "o";
 		assertEquals("origin_ (after setting)",
-				packet.origin_, "o");
+				origin, "o");
 	}
 
 	private boolean compareFiles (String filename1, String filename2) {
