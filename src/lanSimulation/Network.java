@@ -253,7 +253,8 @@ public class Network {
 			// just ignore
 		}
 		currentNode = startNode.nextNode_;
-		while ((! packet.destination_.equals(currentNode.name_))
+		var destination = packet.destination_;
+		while ((! destination.equals(currentNode.name_))
 				& (! packet.getOrigin_().equals(currentNode.name_))) {
 			try {
 				report.write("\tNode '");
@@ -266,7 +267,7 @@ public class Network {
 			currentNode = currentNode.nextNode_;
 		}
 
-		if (packet.destination_.equals(currentNode.name_)) {
+		if (destination.equals(currentNode.name_)) {
 			result = printDocument(currentNode, packet, report);
 		} else {
 			try {
