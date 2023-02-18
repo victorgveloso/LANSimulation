@@ -201,7 +201,7 @@ public class Network {
 				// just ignore
 			}
 			currentNode = currentNode.nextNode_;
-		} while (! packet.destination_.equals(currentNode.name_));
+		} while (! packet.getDestination_().equals(currentNode.name_));
 
 		try {
 			report.write(">>> Broadcast travelled whole token ring.\n\n");
@@ -253,7 +253,7 @@ public class Network {
 			// just ignore
 		}
 		currentNode = startNode.nextNode_;
-		var destination = packet.destination_;
+		var destination = packet.getDestination_();
 		while ((! destination.equals(currentNode.name_))
 				& (! packet.getOrigin_().equals(currentNode.name_))) {
 			try {

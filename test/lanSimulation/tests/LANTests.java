@@ -39,7 +39,7 @@ public class LANTests {
 		assertEquals("message_",
 				packet.getMessage_(), "c");
 		assertEquals("destination_",
-				packet.destination_, "a");
+				packet.getDestination_(), "a");
 		assertEquals("origin_",
 				packet.getOrigin_(), "");
 		packet.setOrigin_("o");
