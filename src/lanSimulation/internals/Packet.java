@@ -27,6 +27,11 @@ public class Packet {
     Holds the actual message to be send over the network.
 	 */
 	public String message_;
+
+	public String getMessage_() {
+		return message_;
+	}
+
 	/**
     Holds the name of the Node which initiated the request.
 	 */
