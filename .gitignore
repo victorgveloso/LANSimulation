@@ -1,0 +1,8 @@
+bin
+.idea
+.settings
+LANSimulation.iml
+*.jar
+*.txt
+.classpath
+.project
