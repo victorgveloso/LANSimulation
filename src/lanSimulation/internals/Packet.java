@@ -58,4 +58,7 @@ public class Packet {
 		return message_;
 	}
 
+	public String getOrigin_() {
+		return origin_;
+	}
 }
