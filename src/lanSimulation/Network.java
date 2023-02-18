@@ -288,7 +288,7 @@ public class Network {
 
 		if (printer.type_ == Node.PRINTER) {
 			try {
-				var message = document.message_;
+				var message = document.getMessage_();
 				if (message.startsWith("!PS")) {
 					startPos = message.indexOf("author:");
 					if (startPos >= 0) {
