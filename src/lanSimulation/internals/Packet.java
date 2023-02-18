@@ -61,4 +61,8 @@ public class Packet {
 	public String getOrigin_() {
 		return origin_;
 	}
+
+	public void setOrigin_(String origin_) {
+		this.origin_ = origin_;
+	}
 }
