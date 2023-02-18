@@ -31,7 +31,7 @@ public class Packet {
 	/**
     Holds the name of the Node which initiated the request.
 	 */
-	public String origin_;
+	private String origin_;
 	/**
     Holds the name of the Node which should receive the information.
 	 */
