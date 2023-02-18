@@ -26,11 +26,7 @@ public class Packet {
 	/**
     Holds the actual message to be send over the network.
 	 */
-	public String message_;
-
-	public String getMessage_() {
-		return message_;
-	}
+	private final String message_;
 
 	/**
     Holds the name of the Node which initiated the request.
@@ -40,7 +36,6 @@ public class Packet {
     Holds the name of the Node which should receive the information.
 	 */
 	public String destination_;
-
 	/**
 	Construct a <em>Packet</em> with given #message and #destination.
 	 */
@@ -57,6 +52,10 @@ public class Packet {
 		message_ = message;
 		origin_ = origin;
 		destination_ = destination;
+	}
+
+	public String getMessage_() {
+		return message_;
 	}
 
 }
