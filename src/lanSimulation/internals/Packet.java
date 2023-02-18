@@ -35,7 +35,7 @@ public class Packet {
 	/**
     Holds the name of the Node which should receive the information.
 	 */
-	public String destination_;
+	private final String destination_;
 	/**
 	Construct a <em>Packet</em> with given #message and #destination.
 	 */
