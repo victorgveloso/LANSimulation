@@ -40,7 +40,7 @@ public class LANTests {
 				packet.getMessage_(), "c");
 		assertEquals("destination_",
 				packet.destination_, "a");
-		var origin = packet.origin_;
+		var origin = packet.getOrigin_();
 		assertEquals("origin_",
 				origin, "");
 		origin = "o";

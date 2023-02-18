@@ -254,7 +254,7 @@ public class Network {
 		}
 		currentNode = startNode.nextNode_;
 		while ((! packet.destination_.equals(currentNode.name_))
-				& (! packet.origin_.equals(currentNode.name_))) {
+				& (! packet.getOrigin_().equals(currentNode.name_))) {
 			try {
 				report.write("\tNode '");
 				report.write(currentNode.name_);
