@@ -154,4 +154,19 @@ public class Node {
 		} while (currentNode != this);
 		buf.append("\n</network>");
 	}
+
+	public void printHTMLOn(StringBuffer buf) {
+		if (isNode()) {
+			printHTMLOnNODE(buf);
+		}
+		else if (isWorkstation()) {
+			printHTMLOnWORKSTATION(buf);
+		}
+		else if (isPrinter()) {
+			printHTMLOnPRINTER(buf);
+		}
+		else {
+			Network.printHTMLOnNONE(buf);
+		}
+	}
 }
