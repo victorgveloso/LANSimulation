@@ -34,10 +34,6 @@ public class Network {
     Used to verify whether I am properly initialized.
 	 */
 	private Network initPtr_;
-	/**
-    Holds a pointer to some "first" node in the token ring.
-    Used to ensure that various printing operations return expected behaviour.
-	 */
 	private Node firstNode_;
 	/**
     Maps the names of workstations on the actual workstations.
@@ -379,4 +375,11 @@ public class Network {
 		buf.append("<unknown></unknown>");
 	}
 
+	/**
+    Holds a pointer to some "first" node in the token ring.
+    Used to ensure that various printing operations return expected behaviour.
+	 */
+	public Node getFirstNode_() {
+		return firstNode_;
+	}
 }
