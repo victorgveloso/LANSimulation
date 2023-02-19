@@ -343,7 +343,7 @@ public class Network {
 		buf.append("\n\t<LI>...</LI>\n</UL>\n\n</BODY>\n</HTML>\n");
 	}
 
-	private static void printHTMLOnNONE(StringBuffer buf) {
+	public static void printHTMLOnNONE(StringBuffer buf) {
 		buf.append("(Unexpected)");
 	}
 
@@ -375,7 +375,7 @@ public class Network {
 		buf.append("\n</network>");
 	}
 
-	private static void printXMLOnNONE(StringBuffer buf) {
+	public static void printXMLOnNONE(StringBuffer buf) {
 		buf.append("<unknown></unknown>");
 	}
 
