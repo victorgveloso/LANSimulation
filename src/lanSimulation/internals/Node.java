@@ -41,9 +41,9 @@ public class Node implements INode {
 	 */
 	public static final byte PRINTER = 2;
 
-	private byte type_;
-	private String name_;
-	private Node nextNode_;
+	protected byte type_;
+	protected String name_;
+	protected Node nextNode_;
 
 	/**
 	Construct a <em>Node</em> with given #type and #name.
