@@ -370,9 +370,7 @@ public class Network {
 				printXMLOnNODE(buf, currentNode);
 			}
 			else if (currentNode.type_ == Node.WORKSTATION) {
-				buf.append("<workstation>");
-				buf.append(currentNode.name_);
-				buf.append("</workstation>");
+				printXMLOnWORKSTATION(buf, currentNode);
 			}
 			else if (currentNode.type_ ==  Node.PRINTER) {
 				buf.append("<printer>");
@@ -385,6 +383,12 @@ public class Network {
 			currentNode = currentNode.nextNode_;
 		} while (currentNode != firstNode_);
 		buf.append("\n</network>");
+	}
+
+	private static void printXMLOnWORKSTATION(StringBuffer buf, Node currentNode) {
+		buf.append("<workstation>");
+		buf.append(currentNode.name_);
+		buf.append("</workstation>");
 	}
 
 	private static void printXMLOnNODE(StringBuffer buf, Node currentNode) {
