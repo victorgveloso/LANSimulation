@@ -252,7 +252,7 @@ public class Network {
 		}
 		currentNode = startNode.nextNode_;
 		while ((!packet.hasDestinationNode(currentNode))
-				& (! packet.getOrigin_().equals(currentNode.name_))) {
+				& (!hasOriginNode(currentNode, packet))) {
 			try {
 				report.write("\tNode '");
 				report.write(currentNode.name_);
@@ -277,6 +277,10 @@ public class Network {
 		}
 
 		return result;
+	}
+
+	private boolean hasOriginNode(Node currentNode, Packet packet) {
+		return packet.getOrigin_().equals(currentNode.name_);
 	}
 
 	/**
