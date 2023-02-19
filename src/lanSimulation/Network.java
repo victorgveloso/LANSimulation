@@ -106,8 +106,12 @@ public class Network {
 		if (n == null) {
 			return false;
 		} else {
-			return n.type_ == Node.WORKSTATION;
+			return isWorkstation(n);
 		}
+	}
+
+	private static boolean isWorkstation(Node n) {
+		return n.type_ == Node.WORKSTATION;
 	}
 
 	/**
@@ -145,7 +149,7 @@ public class Network {
 		currentNode = firstNode_;
 		while (! encountered.containsKey(currentNode.name_)) {
 			encountered.put(currentNode.name_, currentNode);
-			if (currentNode.type_ == Node.WORKSTATION) {
+			if (isWorkstation(currentNode)) {
 				workstationsFound++;
 			}
 			if (currentNode.type_ == Node.PRINTER) {
@@ -298,7 +302,7 @@ public class Network {
 			if (currentNode.type_ == Node.NODE) {
 				printHTMLOnNODE(buf, currentNode);
 			}
-			else if (currentNode.type_ == Node.WORKSTATION) {
+			else if (isWorkstation(currentNode)) {
 				printHTMLOnWORKSTATION(buf, currentNode);
 			}
 			else if (currentNode.type_ ==  Node.PRINTER) {
@@ -328,7 +332,7 @@ public class Network {
 			if (currentNode.type_ == Node.NODE) {
 				printHTMLOnNODE(buf, currentNode);
 			}
-			else if (currentNode.type_ == Node.WORKSTATION) {
+			else if (isWorkstation(currentNode)) {
 				printHTMLOnWORKSTATION(buf, currentNode);
 			}
 			else if (currentNode.type_ ==  Node.PRINTER) {
@@ -379,7 +383,7 @@ public class Network {
 			if (currentNode.type_ == Node.NODE) {
 				printXMLOnNODE(buf, currentNode);
 			}
-			else if (currentNode.type_ == Node.WORKSTATION) {
+			else if (isWorkstation(currentNode)) {
 				printXMLOnWORKSTATION(buf, currentNode);
 			}
 			else if (currentNode.type_ ==  Node.PRINTER) {
