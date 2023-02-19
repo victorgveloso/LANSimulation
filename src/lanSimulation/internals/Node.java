@@ -74,4 +74,9 @@ public class Node {
 		nextNode_ = nextNode;
 	}
 
+	public void printHTMLOnNODE(StringBuffer buf) {
+		buf.append("Node ");
+		buf.append(name_);
+		buf.append(" [Node]");
+	}
 }

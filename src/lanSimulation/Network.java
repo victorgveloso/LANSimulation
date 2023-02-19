@@ -304,7 +304,7 @@ public class Network {
 		Node currentNode = firstNode_;
 		do {
 			if (isNode(currentNode)) {
-				printHTMLOnNODE(buf, currentNode);
+				currentNode.printHTMLOnNODE(buf);
 			}
 			else if (isWorkstation(currentNode)) {
 				printHTMLOnWORKSTATION(buf, currentNode);
@@ -338,7 +338,7 @@ public class Network {
 		do {
 			buf.append("\n\t<LI> ");
 			if (isNode(currentNode)) {
-				printHTMLOnNODE(buf, currentNode);
+				currentNode.printHTMLOnNODE(buf);
 			}
 			else if (isWorkstation(currentNode)) {
 				printHTMLOnWORKSTATION(buf, currentNode);
@@ -353,12 +353,6 @@ public class Network {
 			currentNode = currentNode.nextNode_;
 		} while (currentNode != firstNode_);
 		buf.append("\n\t<LI>...</LI>\n</UL>\n\n</BODY>\n</HTML>\n");
-	}
-
-	private static void printHTMLOnNODE(StringBuffer buf, Node currentNode) {
-		buf.append("Node ");
-		buf.append(currentNode.name_);
-		buf.append(" [Node]");
 	}
 
 	private static void printHTMLOnWORKSTATION(StringBuffer buf, Node currentNode) {
