@@ -103,4 +103,10 @@ public class Node {
 		buf.append(name_);
 		buf.append("</node>");
 	}
+
+	public void printXMLOnWORKSTATION(StringBuffer buf) {
+		buf.append("<workstation>");
+		buf.append(name_);
+		buf.append("</workstation>");
+	}
 }
