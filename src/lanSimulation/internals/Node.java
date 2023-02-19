@@ -79,4 +79,10 @@ public class Node {
 		buf.append(name_);
 		buf.append(" [Node]");
 	}
+
+	public void printHTMLOnWORKSTATION(StringBuffer buf) {
+		buf.append("Workstation ");
+		buf.append(name_);
+		buf.append(" [Workstation]");
+	}
 }
