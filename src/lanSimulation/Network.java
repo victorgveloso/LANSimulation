@@ -347,24 +347,10 @@ public class Network {
 		buf.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<network>");
 		do {
 			buf.append("\n\t");
-			printXMLOn2(buf, currentNode);
+			currentNode.printXMLOn2(buf);
 			currentNode = currentNode.nextNode_;
 		} while (currentNode != node);
 		buf.append("\n</network>");
 	}
 
-	private void printXMLOn2(StringBuffer buf, Node currentNode) {
-		if (currentNode.isNode()) {
-			currentNode.printXMLOnNODE(buf);
-		}
-		else if (currentNode.isWorkstation()) {
-			currentNode.printXMLOnWORKSTATION(buf);
-		}
-		else if (currentNode.isPrinter()) {
-			currentNode.printXMLOnPRINTER(buf);
-		}
-		else {
-			printXMLOnNONE(buf);
-		}
-	}
 }

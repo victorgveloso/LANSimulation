@@ -138,4 +138,19 @@ public class Node {
 			Network.printHTMLOnNONE(buf);
 		}
 	}
+
+	public void printXMLOn2(StringBuffer buf) {
+		if (isNode()) {
+			printXMLOnNODE(buf);
+		}
+		else if (isWorkstation()) {
+			printXMLOnWORKSTATION(buf);
+		}
+		else if (isPrinter()) {
+			printXMLOnPRINTER(buf);
+		}
+		else {
+			Network.printXMLOnNONE(buf);
+		}
+	}
 }
