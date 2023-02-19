@@ -135,4 +135,8 @@ public class Packet {
 	public boolean hasDestinationNode(Node currentNode) {
 		return getDestination_().equals(currentNode.name_);
 	}
+
+	public boolean hasOriginNode(Node currentNode) {
+		return getOrigin_().equals(currentNode.name_);
+	}
 }
