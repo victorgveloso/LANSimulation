@@ -20,12 +20,13 @@
 package lanSimulation.internals;
 
 import lanSimulation.Network;
+import lanSimulation.INode;
 
 /**
 A <em>Node</em> represents a single Node in a Local Area Network (LAN).
 Several types of Nodes exist.
  */
-public class Node {
+public class Node implements INode {
 	//enumeration constants specifying all legal node types
 	/**
     A node with type NODE has only basic functionality.
@@ -40,10 +41,7 @@ public class Node {
 	 */
 	public static final byte PRINTER = 2;
 
-	/**
-    Holds the type of the Node.
-	 */
-	public byte type_;
+	private byte type_;
 	private String name_;
 	private Node nextNode_;
 
@@ -109,14 +107,17 @@ public class Node {
 		return type_ == NODE;
 	}
 
+	@Override
 	public boolean isWorkstation() {
 		return type_ == WORKSTATION;
 	}
 
+	@Override
 	public boolean isPrinter() {
 		return type_ == PRINTER;
 	}
 
+	@Override
 	public void printHTMLOn(StringBuffer buf) {
 		if (isNode()) {
 			printHTMLOnNODE(buf);
@@ -132,6 +133,7 @@ public class Node {
 		}
 	}
 
+	@Override
 	public void printXMLOn(StringBuffer buf) {
 		if (isNode()) {
 			printXMLOnNODE(buf);
@@ -150,6 +152,7 @@ public class Node {
 	/**
     Holds the name of the Node.
 	 */
+	@Override
 	public String getName_() {
 		return name_;
 	}
@@ -158,11 +161,21 @@ public class Node {
     Holds the next Node in the token ring architecture.
     @see Node
 	 */
+	@Override
 	public Node getNextNode_() {
 		return nextNode_;
 	}
 
+	@Override
 	public void setNextNode_(Node nextNode_) {
 		this.nextNode_ = nextNode_;
+	}
+
+	/**
+    Holds the type of the Node.
+	 */
+	@Override
+	public byte getType_() {
+		return type_;
 	}
 }

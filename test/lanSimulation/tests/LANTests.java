@@ -89,7 +89,7 @@ public class LANTests {
 
 		node = new Node(Node.NODE, "n");
 		assertEquals("type_",
-				node.type_, Node.NODE);
+				node.getType_(), Node.NODE);
 		assertEquals("name_",
 				node.getName_(), "n");
 		assertEquals("nextNode_",

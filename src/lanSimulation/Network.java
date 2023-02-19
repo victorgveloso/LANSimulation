@@ -132,7 +132,7 @@ public class Network {
 		enumeration = workstations_.elements();
 		while (enumeration.hasMoreElements()) {
 			currentNode = (Node) enumeration.nextElement();
-			if (currentNode.type_ != Node.WORKSTATION) {
+			if (currentNode.getType_() != Node.WORKSTATION) {
 				return false;
 			}
 		}
