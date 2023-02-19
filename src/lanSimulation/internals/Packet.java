@@ -131,4 +131,8 @@ public class Packet {
 			return false;
 		}
 	}
+
+	public boolean hasDestinationNode(Node currentNode) {
+		return getDestination_().equals(currentNode.name_);
+	}
 }
