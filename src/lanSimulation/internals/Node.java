@@ -91,4 +91,10 @@ public class Node {
 		buf.append(name_);
 		buf.append(" [Printer]");
 	}
+
+	public void printXMLOnPRINTER(StringBuffer buf) {
+		buf.append("<printer>");
+		buf.append(name_);
+		buf.append("</printer>");
+	}
 }

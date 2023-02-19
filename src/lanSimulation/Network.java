@@ -377,7 +377,7 @@ public class Network {
 				printXMLOnWORKSTATION(buf, currentNode);
 			}
 			else if (isPrinter(currentNode)) {
-				printXMLOnPRINTER(buf, currentNode);
+				currentNode.printXMLOnPRINTER(buf);
 			}
 			else {
 				printXMLOnNONE(buf);
@@ -389,12 +389,6 @@ public class Network {
 
 	private static void printXMLOnNONE(StringBuffer buf) {
 		buf.append("<unknown></unknown>");
-	}
-
-	private static void printXMLOnPRINTER(StringBuffer buf, Node currentNode) {
-		buf.append("<printer>");
-		buf.append(currentNode.name_);
-		buf.append("</printer>");
 	}
 
 	private static void printXMLOnWORKSTATION(StringBuffer buf, Node currentNode) {
