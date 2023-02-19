@@ -296,9 +296,7 @@ public class Network {
 		Node currentNode = firstNode_;
 		do {
 			if (currentNode.type_ == Node.NODE) {
-				buf.append("Node ");
-				buf.append(currentNode.name_);
-				buf.append(" [Node]");
+				printHTMLOnNODE(buf, currentNode);
 			}
 			else if (currentNode.type_ == Node.WORKSTATION) {
 				buf.append("Workstation ");
@@ -311,7 +309,7 @@ public class Network {
 				buf.append(" [Printer]");
 			}
 			else {
-				buf.append("(Unexpected)");
+				printHTMLOnNONE(buf);
 			}
 			buf.append(" -> ");
 			currentNode = currentNode.nextNode_;
@@ -347,12 +345,16 @@ public class Network {
 				buf.append(" [Printer]");
 			}
 			else {
-				buf.append("(Unexpected)");
+				printHTMLOnNONE(buf);
 			}
 			buf.append(" </LI>");
 			currentNode = currentNode.nextNode_;
 		} while (currentNode != firstNode_);
 		buf.append("\n\t<LI>...</LI>\n</UL>\n\n</BODY>\n</HTML>\n");
+	}
+
+	private static void printHTMLOnNONE(StringBuffer buf) {
+		buf.append("(Unexpected)");
 	}
 
 	/**
