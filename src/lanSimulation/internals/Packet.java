@@ -80,22 +80,23 @@ public class Packet {
 
 		if (printer.type_ == Node.PRINTER) {
 			try {
-				if (getMessage_().startsWith("!PS")) {
-					startPos = getMessage_().indexOf("author:");
+				var message = getMessage_();
+				if (message.startsWith("!PS")) {
+					startPos = message.indexOf("author:");
 					if (startPos >= 0) {
-						endPos = getMessage_().indexOf(".", startPos + 7);
+						endPos = message.indexOf(".", startPos + 7);
 						if (endPos < 0) {
-							endPos = getMessage_().length();
+							endPos = message.length();
 						}
-						author = getMessage_().substring(startPos + 7, endPos);
+						author = message.substring(startPos + 7, endPos);
 					}
-					startPos = getMessage_().indexOf("title:");
+					startPos = message.indexOf("title:");
 					if (startPos >= 0) {
-						endPos = getMessage_().indexOf(".", startPos + 6);
+						endPos = message.indexOf(".", startPos + 6);
 						if (endPos < 0) {
-							endPos = getMessage_().length();
+							endPos = message.length();
 						}
-						title = getMessage_().substring(startPos + 6, endPos);
+						title = message.substring(startPos + 6, endPos);
 					}
 					report.write("\tAccounting -- author = '");
 					report.write(author);
@@ -106,8 +107,8 @@ public class Packet {
 					report.flush();
 				} else {
 					title = "ASCII DOCUMENT";
-					if (getMessage_().length() >= 16) {
-						author = getMessage_().substring(8, 16);
+					if (message.length() >= 16) {
+						author = message.substring(8, 16);
 					}
 					report.write("\tAccounting -- author = '");
 					report.write(author);
