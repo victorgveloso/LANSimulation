@@ -152,7 +152,7 @@ public class Network {
 			if (isWorkstation(currentNode)) {
 				workstationsFound++;
 			}
-			if (currentNode.type_ == Node.PRINTER) {
+			if (isPrinter(currentNode)) {
 				printersFound++;
 			}
 			currentNode = currentNode.nextNode_;
@@ -168,6 +168,10 @@ public class Network {
 		}//not all workstations are registered
 		//all verifications succeeded
 		return true;
+	}
+
+	private static boolean isPrinter(Node currentNode) {
+		return currentNode.type_ == Node.PRINTER;
 	}
 
 	/**
@@ -305,7 +309,7 @@ public class Network {
 			else if (isWorkstation(currentNode)) {
 				printHTMLOnWORKSTATION(buf, currentNode);
 			}
-			else if (currentNode.type_ ==  Node.PRINTER) {
+			else if (isPrinter(currentNode)) {
 				printHTMLOnPRINTER(buf, currentNode);
 			}
 			else {
@@ -335,7 +339,7 @@ public class Network {
 			else if (isWorkstation(currentNode)) {
 				printHTMLOnWORKSTATION(buf, currentNode);
 			}
-			else if (currentNode.type_ ==  Node.PRINTER) {
+			else if (isPrinter(currentNode)) {
 				printHTMLOnPRINTER(buf, currentNode);
 			}
 			else {
@@ -386,7 +390,7 @@ public class Network {
 			else if (isWorkstation(currentNode)) {
 				printXMLOnWORKSTATION(buf, currentNode);
 			}
-			else if (currentNode.type_ ==  Node.PRINTER) {
+			else if (isPrinter(currentNode)) {
 				printXMLOnPRINTER(buf, currentNode);
 			}
 			else {
