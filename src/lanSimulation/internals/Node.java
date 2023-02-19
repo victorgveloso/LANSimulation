@@ -85,4 +85,10 @@ public class Node {
 		buf.append(name_);
 		buf.append(" [Workstation]");
 	}
+
+	public void printHTMLOnPRINTER(StringBuffer buf) {
+		buf.append("Printer ");
+		buf.append(name_);
+		buf.append(" [Printer]");
+	}
 }
