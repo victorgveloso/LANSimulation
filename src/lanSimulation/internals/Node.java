@@ -117,4 +117,8 @@ public class Node {
 	public boolean isWorkstation() {
 		return type_ == WORKSTATION;
 	}
+
+	public boolean isPrinter() {
+		return type_ == PRINTER;
+	}
 }
