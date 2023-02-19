@@ -67,43 +67,43 @@ public class Node implements INode {
 		nextNode_ = nextNode;
 	}
 
-	public void printHTMLOnNODE(StringBuffer buf) {
+	private void printHTMLOnNODE(StringBuffer buf) {
 		buf.append("Node ");
 		buf.append(name_);
 		buf.append(" [Node]");
 	}
 
-	public void printHTMLOnWORKSTATION(StringBuffer buf) {
+	private void printHTMLOnWORKSTATION(StringBuffer buf) {
 		buf.append("Workstation ");
 		buf.append(name_);
 		buf.append(" [Workstation]");
 	}
 
-	public void printHTMLOnPRINTER(StringBuffer buf) {
+	private void printHTMLOnPRINTER(StringBuffer buf) {
 		buf.append("Printer ");
 		buf.append(name_);
 		buf.append(" [Printer]");
 	}
 
-	public void printXMLOnPRINTER(StringBuffer buf) {
+	private void printXMLOnPRINTER(StringBuffer buf) {
 		buf.append("<printer>");
 		buf.append(name_);
 		buf.append("</printer>");
 	}
 
-	public void printXMLOnNODE(StringBuffer buf) {
+	private void printXMLOnNODE(StringBuffer buf) {
 		buf.append("<node>");
 		buf.append(name_);
 		buf.append("</node>");
 	}
 
-	public void printXMLOnWORKSTATION(StringBuffer buf) {
+	private void printXMLOnWORKSTATION(StringBuffer buf) {
 		buf.append("<workstation>");
 		buf.append(name_);
 		buf.append("</workstation>");
 	}
 
-	public boolean isNode() {
+	private boolean isNode() {
 		return type_ == NODE;
 	}
 
