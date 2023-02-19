@@ -80,7 +80,7 @@ public class Packet {
 
 		if (printer.type_ == Node.PRINTER) {
 			try {
-				var message = getMessage_();
+				var message = message_;
 				if (message.startsWith("!PS")) {
 					startPos = message.indexOf("author:");
 					if (startPos >= 0) {
