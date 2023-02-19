@@ -106,12 +106,8 @@ public class Network {
 		if (n == null) {
 			return false;
 		} else {
-			return isWorkstation(n);
+			return n.isWorkstation();
 		}
-	}
-
-	private static boolean isWorkstation(Node n) {
-		return n.type_ == Node.WORKSTATION;
 	}
 
 	/**
@@ -149,7 +145,7 @@ public class Network {
 		currentNode = firstNode_;
 		while (! encountered.containsKey(currentNode.name_)) {
 			encountered.put(currentNode.name_, currentNode);
-			if (isWorkstation(currentNode)) {
+			if (currentNode.isWorkstation()) {
 				workstationsFound++;
 			}
 			if (isPrinter(currentNode)) {
@@ -306,7 +302,7 @@ public class Network {
 			if (currentNode.isNode()) {
 				currentNode.printHTMLOnNODE(buf);
 			}
-			else if (isWorkstation(currentNode)) {
+			else if (currentNode.isWorkstation()) {
 				currentNode.printHTMLOnWORKSTATION(buf);
 			}
 			else if (isPrinter(currentNode)) {
@@ -336,7 +332,7 @@ public class Network {
 			if (currentNode.isNode()) {
 				currentNode.printHTMLOnNODE(buf);
 			}
-			else if (isWorkstation(currentNode)) {
+			else if (currentNode.isWorkstation()) {
 				currentNode.printHTMLOnWORKSTATION(buf);
 			}
 			else if (isPrinter(currentNode)) {
@@ -369,7 +365,7 @@ public class Network {
 			if (currentNode.isNode()) {
 				currentNode.printXMLOnNODE(buf);
 			}
-			else if (isWorkstation(currentNode)) {
+			else if (currentNode.isWorkstation()) {
 				currentNode.printXMLOnWORKSTATION(buf);
 			}
 			else if (isPrinter(currentNode)) {

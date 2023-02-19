@@ -113,4 +113,8 @@ public class Node {
 	public boolean isNode() {
 		return type_ == NODE;
 	}
+
+	public boolean isWorkstation() {
+		return type_ == WORKSTATION;
+	}
 }
