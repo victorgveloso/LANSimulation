@@ -124,37 +124,6 @@ public class Node {
 		return type_ == PRINTER;
 	}
 
-	/**
-	 * Write an XML representation of #receiver on the given #buf.
-	 * <p><strong>Precondition:</strong> isInitialized();</p>
-	 *
-	 * @param buf
-	 * @param network
-	 */
-	public void printXMLOn (StringBuffer buf, Network network) {
-		assert network.isInitialized();
-
-		Node currentNode = network.getFirstNode_();
-		buf.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<network>");
-		do {
-			buf.append("\n\t");
-			if (currentNode.isNode()) {
-				currentNode.printXMLOnNODE(buf);
-			}
-			else if (currentNode.isWorkstation()) {
-				currentNode.printXMLOnWORKSTATION(buf);
-			}
-			else if (currentNode.isPrinter()) {
-				currentNode.printXMLOnPRINTER(buf);
-			}
-			else {
-				Network.printXMLOnNONE(buf);
-			}
-			currentNode = currentNode.nextNode_;
-		} while (currentNode != this);
-		buf.append("\n</network>");
-	}
-
 	public void printHTMLOn(StringBuffer buf) {
 		if (isNode()) {
 			printHTMLOnNODE(buf);
