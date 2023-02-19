@@ -139,7 +139,7 @@ public class Node {
 		}
 	}
 
-	public void printXMLOn2(StringBuffer buf) {
+	public void printXMLOn(StringBuffer buf) {
 		if (isNode()) {
 			printXMLOnNODE(buf);
 		}

@@ -347,7 +347,7 @@ public class Network {
 		buf.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<network>");
 		do {
 			buf.append("\n\t");
-			currentNode.printXMLOn2(buf);
+			currentNode.printXMLOn(buf);
 			currentNode = currentNode.nextNode_;
 		} while (currentNode != node);
 		buf.append("\n</network>");
