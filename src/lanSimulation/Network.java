@@ -376,11 +376,15 @@ public class Network {
 				printXMLOnPRINTER(buf, currentNode);
 			}
 			else {
-				buf.append("<unknown></unknown>");
+				printXMLOnNONE(buf);
 			}
 			currentNode = currentNode.nextNode_;
 		} while (currentNode != firstNode_);
 		buf.append("\n</network>");
+	}
+
+	private static void printXMLOnNONE(StringBuffer buf) {
+		buf.append("<unknown></unknown>");
 	}
 
 	private static void printXMLOnPRINTER(StringBuffer buf, Node currentNode) {
