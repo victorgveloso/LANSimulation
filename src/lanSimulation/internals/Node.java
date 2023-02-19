@@ -109,4 +109,8 @@ public class Node {
 		buf.append(name_);
 		buf.append("</workstation>");
 	}
+
+	public boolean isNode() {
+		return type_ == NODE;
+	}
 }
