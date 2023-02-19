@@ -291,18 +291,7 @@ public class Network {
 		assert isInitialized();
 		Node currentNode = firstNode_;
 		do {
-			if (currentNode.isNode()) {
-				currentNode.printHTMLOnNODE(buf);
-			}
-			else if (currentNode.isWorkstation()) {
-				currentNode.printHTMLOnWORKSTATION(buf);
-			}
-			else if (currentNode.isPrinter()) {
-				currentNode.printHTMLOnPRINTER(buf);
-			}
-			else {
-				printHTMLOnNONE(buf);
-			}
+			printHTMLOn(buf);
 			buf.append(" -> ");
 			currentNode = currentNode.nextNode_;
 		} while (currentNode != firstNode_);
@@ -321,22 +310,26 @@ public class Network {
 		buf.append("\n\n<UL>");
 		do {
 			buf.append("\n\t<LI> ");
-			if (currentNode.isNode()) {
-				currentNode.printHTMLOnNODE(buf);
-			}
-			else if (currentNode.isWorkstation()) {
-				currentNode.printHTMLOnWORKSTATION(buf);
-			}
-			else if (currentNode.isPrinter()) {
-				currentNode.printHTMLOnPRINTER(buf);
-			}
-			else {
-				printHTMLOnNONE(buf);
-			}
+			printHTMLOn(buf, currentNode);
 			buf.append(" </LI>");
 			currentNode = currentNode.nextNode_;
 		} while (currentNode != firstNode_);
 		buf.append("\n\t<LI>...</LI>\n</UL>\n\n</BODY>\n</HTML>\n");
+	}
+
+	private void printHTMLOn(StringBuffer buf, Node currentNode) {
+		if (currentNode.isNode()) {
+			currentNode.printHTMLOnNODE(buf);
+		}
+		else if (currentNode.isWorkstation()) {
+			currentNode.printHTMLOnWORKSTATION(buf);
+		}
+		else if (currentNode.isPrinter()) {
+			currentNode.printHTMLOnPRINTER(buf);
+		}
+		else {
+			printHTMLOnNONE(buf);
+		}
 	}
 
 	public static void printHTMLOnNONE(StringBuffer buf) {
