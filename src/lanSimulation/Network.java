@@ -239,10 +239,8 @@ public class Network {
 		}
 
 		boolean result = false;
-		Node startNode, currentNode;
+		Node startNode = workstations_.get(workstation), currentNode;
 		Packet packet = new Packet(document, workstation, printer);
-
-		startNode = (Node) workstations_.get(workstation);
 
 		try {
 			report.write("\tNode '");
