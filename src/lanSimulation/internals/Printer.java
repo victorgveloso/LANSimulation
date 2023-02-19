@@ -2,18 +2,50 @@ package lanSimulation.internals;
 
 import lanSimulation.INode;
 
-public class Printer implements INode {
+public class Printer extends Node {
 
-    private String name_;
-    private Node nextNode_;
-
-    public Printer(String name_) {
-        this.name_ = name_;
+    /**
+     * Construct a <em>Printer</em> with given #type and #name.
+     * <p><strong>Precondition:</strong> (type >= NODE) & (type <= PRINTER);</p>
+     *
+     * @param type
+     * @param name
+     */
+    public Printer(byte type, String name) {
+        super(Node.PRINTER, name);
     }
 
-    public Printer(String name_, Node nextNode_) {
-        this.name_ = name_;
-        this.nextNode_ = nextNode_;
+    /**
+     * Construct a <em>Printer</em> with given #type and #name, and which is linked to #nextNode.
+     * <p><strong>Precondition:</strong> (type >= NODE) & (type <= PRINTER);</p>
+     *
+     * @param type
+     * @param name
+     * @param nextNode
+     */
+    public Printer(byte type, String name, Node nextNode) {
+        super(Node.PRINTER, name, nextNode);
+    }
+
+
+    /**
+     * Construct a <em>Printer</em> with given #name.
+     *
+     * @param name
+     */
+    public Printer(String name) {
+        super(Node.PRINTER, name);
+    }
+
+
+    /**
+     * Construct a <em>Printer</em> with given #name and which is linked to #nextNode.
+     *
+     * @param name
+     * @param nextNode
+     */
+    public Printer(String name, Node nextNode) {
+        super(Node.PRINTER, name, nextNode);
     }
 
     @Override

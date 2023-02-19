@@ -2,18 +2,50 @@ package lanSimulation.internals;
 
 import lanSimulation.INode;
 
-public class Workstation implements INode {
+public class Workstation extends Node {
 
-    private String name_;
-    private Node nextNode_;
-
-    public Workstation(String name) {
-        name_ = name;
+    /**
+     * Construct a <em>Workstation</em> with given #type and #name.
+     * <p><strong>Precondition:</strong> (type >= NODE) & (type <= PRINTER);</p>
+     *
+     * @param type
+     * @param name
+     */
+    public Workstation(byte type, String name) {
+        super(Node.PRINTER, name);
     }
 
+    /**
+     * Construct a <em>Workstation</em> with given #type and #name, and which is linked to #nextNode.
+     * <p><strong>Precondition:</strong> (type >= NODE) & (type <= PRINTER);</p>
+     *
+     * @param type
+     * @param name
+     * @param nextNode
+     */
+    public Workstation(byte type, String name, Node nextNode) {
+        super(Node.PRINTER, name, nextNode);
+    }
+
+
+    /**
+     * Construct a <em>Workstation</em> with given #name.
+     *
+     * @param name
+     */
+    public Workstation(String name) {
+        super(Node.PRINTER, name);
+    }
+
+
+    /**
+     * Construct a <em>Workstation</em> with given #name and which is linked to #nextNode.
+     *
+     * @param name
+     * @param nextNode
+     */
     public Workstation(String name, Node nextNode) {
-        name_ = name;
-        nextNode_ = nextNode;
+        super(Node.PRINTER, name, nextNode);
     }
 
     @Override
