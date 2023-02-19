@@ -303,7 +303,7 @@ public class Network {
 		assert isInitialized();
 		Node currentNode = firstNode_;
 		do {
-			if (currentNode.type_ == Node.NODE) {
+			if (isNode(currentNode)) {
 				printHTMLOnNODE(buf, currentNode);
 			}
 			else if (isWorkstation(currentNode)) {
@@ -321,6 +321,10 @@ public class Network {
 		buf.append(" ... ");
 	}
 
+	private static boolean isNode(Node currentNode) {
+		return currentNode.type_ == Node.NODE;
+	}
+
 	/**
 	Write a HTML representation of #receiver on the given #buf.
 	 <p><strong>Precondition:</strong> isInitialized();</p>
@@ -333,7 +337,7 @@ public class Network {
 		buf.append("\n\n<UL>");
 		do {
 			buf.append("\n\t<LI> ");
-			if (currentNode.type_ == Node.NODE) {
+			if (isNode(currentNode)) {
 				printHTMLOnNODE(buf, currentNode);
 			}
 			else if (isWorkstation(currentNode)) {
@@ -384,7 +388,7 @@ public class Network {
 		buf.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<network>");
 		do {
 			buf.append("\n\t");
-			if (currentNode.type_ == Node.NODE) {
+			if (isNode(currentNode)) {
 				printXMLOnNODE(buf, currentNode);
 			}
 			else if (isWorkstation(currentNode)) {
