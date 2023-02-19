@@ -101,11 +101,8 @@ public class Network {
 	<p><strong>Precondition:</strong>this.isInitialized();</p>
 	 */
 	public boolean hasWorkstation (String ws) {
-		//return workstations_.containsKey(ws);
-		Node n;
-
 		assert isInitialized();
-		n = (Node) workstations_.get(ws);
+		Node n = workstations_.get(ws);
 		if (n == null) {
 			return false;
 		} else {
