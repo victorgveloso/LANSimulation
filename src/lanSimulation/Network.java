@@ -299,9 +299,7 @@ public class Network {
 				printHTMLOnNODE(buf, currentNode);
 			}
 			else if (currentNode.type_ == Node.WORKSTATION) {
-				buf.append("Workstation ");
-				buf.append(currentNode.name_);
-				buf.append(" [Workstation]");
+				printHTMLOnWORKSTATION(buf, currentNode);
 			}
 			else if (currentNode.type_ ==  Node.PRINTER) {
 				printHTMLOnPRINTER(buf, currentNode);
@@ -333,9 +331,7 @@ public class Network {
 				buf.append(" [Node]");
 			}
 			else if (currentNode.type_ == Node.WORKSTATION) {
-				buf.append("Workstation ");
-				buf.append(currentNode.name_);
-				buf.append(" [Workstation]");
+				printHTMLOnWORKSTATION(buf, currentNode);
 			}
 			else if (currentNode.type_ ==  Node.PRINTER) {
 				printHTMLOnPRINTER(buf, currentNode);
@@ -347,6 +343,12 @@ public class Network {
 			currentNode = currentNode.nextNode_;
 		} while (currentNode != firstNode_);
 		buf.append("\n\t<LI>...</LI>\n</UL>\n\n</BODY>\n</HTML>\n");
+	}
+
+	private static void printHTMLOnWORKSTATION(StringBuffer buf, Node currentNode) {
+		buf.append("Workstation ");
+		buf.append(currentNode.name_);
+		buf.append(" [Workstation]");
 	}
 
 	private static void printHTMLOnNONE(StringBuffer buf) {
