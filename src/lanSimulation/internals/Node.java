@@ -44,15 +44,8 @@ public class Node {
     Holds the type of the Node.
 	 */
 	public byte type_;
-	/**
-    Holds the name of the Node.
-	 */
-	public String name_;
-	/**
-    Holds the next Node in the token ring architecture.
-    @see lanSimulation.internals.Node
-	 */
-	public Node nextNode_;
+	private String name_;
+	private Node nextNode_;
 
 	/**
 	Construct a <em>Node</em> with given #type and #name.
@@ -152,5 +145,24 @@ public class Node {
 		else {
 			Network.printXMLOnNONE(buf);
 		}
+	}
+
+	/**
+    Holds the name of the Node.
+	 */
+	public String getName_() {
+		return name_;
+	}
+
+	/**
+    Holds the next Node in the token ring architecture.
+    @see Node
+	 */
+	public Node getNextNode_() {
+		return nextNode_;
+	}
+
+	public void setNextNode_(Node nextNode_) {
+		this.nextNode_ = nextNode_;
 	}
 }

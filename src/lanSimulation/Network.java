@@ -71,13 +71,13 @@ public class Network {
 		Node wsHans = new Node (Node.WORKSTATION, "Hans");
 		Node prAndy = new Node (Node.PRINTER, "Andy");
 
-		wsFilip.nextNode_ = n1;
-		n1.nextNode_ = wsHans;
-		wsHans.nextNode_ = prAndy;
-		prAndy.nextNode_ = wsFilip;
+		wsFilip.setNextNode_(n1);
+		n1.setNextNode_(wsHans);
+		wsHans.setNextNode_(prAndy);
+		prAndy.setNextNode_(wsFilip);
 
-		network.workstations_.put(wsFilip.name_, wsFilip);
-		network.workstations_.put(wsHans.name_, wsHans);
+		network.workstations_.put(wsFilip.getName_(), wsFilip);
+		network.workstations_.put(wsHans.getName_(), wsHans);
 		network.firstNode_ = wsFilip;
 
 		assert network.isInitialized();
@@ -139,15 +139,15 @@ public class Network {
 		//enumerate the token ring, verifying whether all workstations are registered
 		//also count the number of printers and see whether the ring is circular
 		currentNode = firstNode_;
-		while (! encountered.containsKey(currentNode.name_)) {
-			encountered.put(currentNode.name_, currentNode);
+		while (! encountered.containsKey(currentNode.getName_())) {
+			encountered.put(currentNode.getName_(), currentNode);
 			if (currentNode.isWorkstation()) {
 				workstationsFound++;
 			}
 			if (currentNode.isPrinter()) {
 				printersFound++;
 			}
-			currentNode = currentNode.nextNode_;
+			currentNode = currentNode.getNextNode_();
 		}
 		if (currentNode != firstNode_) {
 			return false;
@@ -180,20 +180,20 @@ public class Network {
 		}
 
 		Node currentNode = firstNode_;
-		Packet packet = new Packet("BROADCAST", firstNode_.name_, firstNode_.name_);
+		Packet packet = new Packet("BROADCAST", firstNode_.getName_(), firstNode_.getName_());
 		do {
 			try {
 				report.write("\tNode '");
-				report.write(currentNode.name_);
+				report.write(currentNode.getName_());
 				report.write("' accepts broadcase packet.\n");
 				report.write("\tNode '");
-				report.write(currentNode.name_);
+				report.write(currentNode.getName_());
 				report.write("' passes packet on.\n");
 				report.flush();
 			} catch (IOException exc) {
 				// just ignore
 			}
-			currentNode = currentNode.nextNode_;
+			currentNode = currentNode.getNextNode_();
 		} while (!packet.hasDestinationNode(currentNode));
 
 		try {
@@ -237,24 +237,24 @@ public class Network {
 
 		try {
 			report.write("\tNode '");
-			report.write(startNode.name_);
+			report.write(startNode.getName_());
 			report.write("' passes packet on.\n");
 			report.flush();
 		} catch (IOException exc) {
 			// just ignore
 		}
-		currentNode = startNode.nextNode_;
+		currentNode = startNode.getNextNode_();
 		while ((!packet.hasDestinationNode(currentNode))
 				& (!packet.hasOriginNode(currentNode))) {
 			try {
 				report.write("\tNode '");
-				report.write(currentNode.name_);
+				report.write(currentNode.getName_());
 				report.write("' passes packet on.\n");
 				report.flush();
 			} catch (IOException exc) {
 				// just ignore
 			}
-			currentNode = currentNode.nextNode_;
+			currentNode = currentNode.getNextNode_();
 		}
 
 		if (packet.hasDestinationNode(currentNode)) {
@@ -293,7 +293,7 @@ public class Network {
 		do {
 			currentNode.printHTMLOn(buf);
 			buf.append(" -> ");
-			currentNode = currentNode.nextNode_;
+			currentNode = currentNode.getNextNode_();
 		} while (currentNode != firstNode_);
 		buf.append(" ... ");
 	}
@@ -312,7 +312,7 @@ public class Network {
 			buf.append("\n\t<LI> ");
 			currentNode.printHTMLOn(buf);
 			buf.append(" </LI>");
-			currentNode = currentNode.nextNode_;
+			currentNode = currentNode.getNextNode_();
 		} while (currentNode != firstNode_);
 		buf.append("\n\t<LI>...</LI>\n</UL>\n\n</BODY>\n</HTML>\n");
 	}
@@ -348,7 +348,7 @@ public class Network {
 		do {
 			buf.append("\n\t");
 			currentNode.printXMLOn(buf);
-			currentNode = currentNode.nextNode_;
+			currentNode = currentNode.getNextNode_();
 		} while (currentNode != node);
 		buf.append("\n</network>");
 	}

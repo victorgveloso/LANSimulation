@@ -91,12 +91,12 @@ public class LANTests {
 		assertEquals("type_",
 				node.type_, Node.NODE);
 		assertEquals("name_",
-				node.name_, "n");
+				node.getName_(), "n");
 		assertEquals("nextNode_",
-				node.nextNode_, null);
-		node.nextNode_ = node;
+				node.getNextNode_(), null);
+		node.setNextNode_(node);
 		assertEquals("nextNode_ (after setting)",
-				node.nextNode_, node);
+				node.getNextNode_(), node);
 	}
 
 	@Test
