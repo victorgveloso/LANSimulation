@@ -168,7 +168,7 @@ public class LANTests {
 			buf.append("\n\n---------------------------------HTML------------------------------------------\n");
 			network.printHTMLOn(buf);
 			buf.append("\n\n---------------------------------XML------------------------------------------\n");
-			network.printXMLOn(buf);
+			network.getFirstNode_().printXMLOn(buf, network);
 			generateOutput.write(buf.toString());
 			report.write("\n\n---------------------------------SCENARIO: Print Success --------------------------\n");
 			network.requestWorkstationPrintsDocument("Filip", "Hello World", "Andy", report);
