@@ -41,14 +41,17 @@ public class Node implements INode {
 	 */
 	public static final byte PRINTER = 2;
 
-	protected byte type_;
+	protected byte type_ = NODE;
 	protected String name_;
 	protected Node nextNode_;
 
 	/**
 	Construct a <em>Node</em> with given #type and #name.
 	<p><strong>Precondition:</strong> (type >= NODE) & (type <= PRINTER);</p>
+	 @deprecated
+	 Parameter (byte type) is deprecated. Use Node(String) instead.
 	 */
+	@Deprecated
 	public Node(byte type, String name) {
 		assert (type >= NODE) & (type <= PRINTER);
 		type_ = type;
@@ -59,12 +62,24 @@ public class Node implements INode {
 	/**
 	Construct a <em>Node</em> with given #type and #name, and which is linked to #nextNode.
 	<p><strong>Precondition:</strong> (type >= NODE) & (type <= PRINTER);</p>
+	 @deprecated
+	 Parameter (byte type) is deprecated. Use Node(String, Node) instead.
 	 */
+	@Deprecated
 	public Node(byte type, String name, Node nextNode) {
 		assert (type >= NODE) & (type <= PRINTER);
 		type_ = type;
 		name_ = name;
 		nextNode_ = nextNode;
+	}
+
+	public Node(String name_) {
+		this.name_ = name_;
+	}
+
+	public Node(String name_, Node nextNode_) {
+		this.name_ = name_;
+		this.nextNode_ = nextNode_;
 	}
 
 	private void printHTMLOnNODE(StringBuffer buf) {
