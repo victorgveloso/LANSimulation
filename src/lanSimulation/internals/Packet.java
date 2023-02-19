@@ -80,23 +80,22 @@ public class Packet {
 
 		if (printer.type_ == Node.PRINTER) {
 			try {
-				var message = message_;
-				if (message.startsWith("!PS")) {
-					startPos = message.indexOf("author:");
+				if (message_.startsWith("!PS")) {
+					startPos = message_.indexOf("author:");
 					if (startPos >= 0) {
-						endPos = message.indexOf(".", startPos + 7);
+						endPos = message_.indexOf(".", startPos + 7);
 						if (endPos < 0) {
-							endPos = message.length();
+							endPos = message_.length();
 						}
-						author = message.substring(startPos + 7, endPos);
+						author = message_.substring(startPos + 7, endPos);
 					}
-					startPos = message.indexOf("title:");
+					startPos = message_.indexOf("title:");
 					if (startPos >= 0) {
-						endPos = message.indexOf(".", startPos + 6);
+						endPos = message_.indexOf(".", startPos + 6);
 						if (endPos < 0) {
-							endPos = message.length();
+							endPos = message_.length();
 						}
-						title = message.substring(startPos + 6, endPos);
+						title = message_.substring(startPos + 6, endPos);
 					}
 					report.write("\tAccounting -- author = '");
 					report.write(author);
@@ -107,8 +106,8 @@ public class Packet {
 					report.flush();
 				} else {
 					title = "ASCII DOCUMENT";
-					if (message.length() >= 16) {
-						author = message.substring(8, 16);
+					if (message_.length() >= 16) {
+						author = message_.substring(8, 16);
 					}
 					report.write("\tAccounting -- author = '");
 					report.write(author);
